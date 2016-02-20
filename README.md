@@ -1,6 +1,4 @@
-# megax4
-
-ATmega168P/328P core for Arduino IDE 1.6.7
+# ATmega168P/328P core for Arduino IDE 1.6.7
 
 This core adds full support for Atmel ATmega168/328P standalone microcontrollers into
 the Arduino IDE versions >= 1.6.7.
