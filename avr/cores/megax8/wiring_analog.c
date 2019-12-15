@@ -20,8 +20,6 @@
   Boston, MA  02111-1307  USA
 
   Modified 28 September 2010 by Mark Sproul
-
-  $Id: wiring.c 248 2007-02-03 15:36:30Z mellis $
 */
 
 #include "wiring_private.h"
@@ -66,7 +64,11 @@ int analogRead(uint8_t pin)
 	// channel (low 4 bits).  this also sets ADLAR (left-adjust result)
 	// to 0 (the default).
 #if defined(ADMUX)
+#if defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__)
+	ADMUX = (analog_reference << 4) | (pin & 0x07);
+#else
 	ADMUX = (analog_reference << 6) | (pin & 0x07);
+#endif
 #endif
 
 	// without a delay, we seem to read from the wrong channel
@@ -157,6 +159,14 @@ void analogWrite(uint8_t pin, int val)
 				// connect pwm to pin on timer 1, channel B
 				sbi(TCCR1A, COM1B1);
 				OCR1B = val; // set pwm duty
+				break;
+			#endif
+
+			#if defined(TCCR1A) && defined(COM1C1)
+			case TIMER1C:
+				// connect pwm to pin on timer 1, channel B
+				sbi(TCCR1A, COM1C1);
+				OCR1C = val; // set pwm duty
 				break;
 			#endif
 
