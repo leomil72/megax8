@@ -1,0 +1,130 @@
+# Extra Atmel MCU-based Board Configuration by Leo72
+#
+# For more information see:
+# - https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5---3rd-party-Hardware-specification
+# - https://github.com/arduino/Arduino/wiki/Arduino-Hardware-Cores-migration-guide-from-1.0-to-1.6
+#
+
+##############################################################
+
+# Menu options
+menu.cpu=Processor
+menu.bootloader=Bootloader
+menu.clock=Clock
+
+##############
+# ATmega328P #
+##############
+
+# General
+atmega328.name=ATmega328P
+#atmega328.upload.tool=arduino:avrdude
+atmega328.upload.tool=avrdude
+#atmega328.upload.tool.default=arduino:avrdude
+atmega328.upload.tool.default=avrdude
+#atmega328.upload.tool.network=arduino:arduino_ota
+atmega328.upload.tool.network=arduino_ota
+atmega328.upload.protocol=arduino
+atmega328.upload.maximum_data_size=2048
+atmega328.upload.speed=115200
+#atmega328.bootloader.tool=avrdude
+atmega328.bootloader.tool=arduino:avrdude
+#atmega328.bootloader.tool.default=arduino:avrdude
+atmega328.bootloader.tool.default=avrdude
+atmega328.bootloader.unlock_bits=0x3F
+atmega328.bootloader.lock_bits=0x0F
+atmega328.bootloader.protocol=arduino
+atmega328.build.board=ATmega328P
+atmega328.build.variant=megax8
+atmega328.build.core=megax8
+atmega328.build.mcu=atmega328p
+
+# Bootloaders
+atmega328.menu.bootloader.optiboot=Yes (Optiboot)
+atmega328.menu.bootloader.optiboot.upload.maximum_size=32256
+atmega328.menu.bootloader.optiboot.bootloader.high_fuses=0xDE
+atmega328.menu.bootloader.optiboot.bootloader.extended_fuses=0xFF
+atmega328.menu.bootloader.optiboot.bootloader.file=megax8/optiboot_atmega328.hex
+
+atmega328.menu.bootloader.no_bootloader=No bootloader
+atmega328.menu.bootloader.no_bootloader.upload.maximum_size=32768
+atmega328.menu.bootloader.no_bootloader.bootloader.high_fuses=0xDF
+atmega328.menu.bootloader.no_bootloader.bootloader.extended_fuses=0xFF
+atmega328.menu.bootloader.no_bootloader.bootloader.file=megax8/optiboot_atmega328.hex
+
+# Clocks
+atmega328.menu.clock.16MHz_ext=External 16 MHz
+atmega328.menu.clock.16MHz_ext.build.f_cpu=16000000L
+atmega328.menu.clock.16MHz_ext.build.clock_speed={build.f_cpu}
+atmega328.menu.clock.16MHz_ext.bootloader.low_fuses=0xFF
+
+atmega328.menu.clock.8MHz_int=Internal 8 MHz
+atmega328.menu.clock.8MHz_int.build.f_cpu=8000000L
+atmega328.menu.clock.8MHz_int.build.clock_speed={build.f_cpu}
+atmega328.menu.clock.8MHz_int.bootloader.low_fuses=0xE2
+
+atmega328.menu.clock.1MHz_int=Internal 1 MHz
+atmega328.menu.clock.1MHz_int.build.f_cpu=1000000L
+atmega328.menu.clock.1MHz_int.build.clock_speed={build.f_cpu}
+atmega328.menu.clock.1MHz_int.bootloader.low_fuses=0x62
+
+
+###########################################################################
+
+##############
+# ATmega168P #
+##############
+
+# General
+atmega168.name=ATmega168P
+#atmega168.upload.tool=arduino:avrdude
+atmega168.upload.tool=avrdude
+#atmega168.upload.tool.default=arduino:avrdude
+atmega168.upload.tool.default=avrdude
+#atmega168.upload.tool.network=arduino:arduino_ota
+atmega168.upload.tool.network=arduino_ota
+atmega168.upload.protocol=arduino
+atmega168.upload.maximum_data_size=1024
+atmega168.upload.speed=115200
+#atmega168.bootloader.tool=avrdude
+atmega168.bootloader.tool=arduino:avrdude
+#atmega168.bootloader.tool.default=arduino:avrdude
+atmega168.bootloader.tool.default=avrdude
+atmega168.bootloader.unlock_bits=0x3F
+atmega168.bootloader.lock_bits=0x0F
+atmega168.bootloader.protocol=arduino
+atmega168.build.board=ATmega168P
+atmega168.build.variant=megax8
+atmega168.build.core=megax8
+atmega168.build.mcu=atmega168p
+
+# Bootloaders
+atmega168.menu.bootloader.optiboot=Yes (Optiboot)
+atmega168.menu.bootloader.optiboot.upload.maximum_size=15872
+atmega168.menu.bootloader.optiboot.bootloader.high_fuses=0xDC
+atmega168.menu.bootloader.optiboot.bootloader.extended_fuses=0xFC
+atmega168.menu.bootloader.optiboot.bootloader.file=megax8/optiboot_atmega168.hex
+
+atmega168.menu.bootloader.no_bootloader=No bootloader
+atmega168.menu.bootloader.no_bootloader.upload.maximum_size=16384
+atmega168.menu.bootloader.no_bootloader.bootloader.high_fuses=0xDF
+atmega168.menu.bootloader.no_bootloader.bootloader.extended_fuses=0xFD
+atmega168.menu.bootloader.no_bootloader.bootloader.file=megax8/optiboot_atmega168.hex
+
+# Clocks
+atmega168.menu.clock.16MHz_ext=External 16 MHz
+atmega168.menu.clock.16MHz_ext.build.f_cpu=16000000L
+atmega168.menu.clock.16MHz_ext.build.clock_speed={build.f_cpu}
+atmega168.menu.clock.16MHz_ext.bootloader.low_fuses=0xFF
+
+atmega168.menu.clock.8MHz_int=Internal 8 MHz
+atmega168.menu.clock.8MHz_int.build.f_cpu=8000000L
+atmega168.menu.clock.8MHz_int.build.clock_speed={build.f_cpu}
+atmega168.menu.clock.8MHz_int.bootloader.low_fuses=0xE2
+
+atmega168.menu.clock.1MHz_int=Internal 1 MHz
+atmega168.menu.clock.1MHz_int.build.f_cpu=1000000L
+atmega168.menu.clock.1MHz_int.build.clock_speed={build.f_cpu}
+atmega328.menu.clock.1MHz_int.bootloader.low_fuses=0x62
+
+###########################################################################
