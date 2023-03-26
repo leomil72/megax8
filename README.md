@@ -1,4 +1,4 @@
-# ATmega168P/328P core for Arduino IDE 1.6.7
+# ATmega168P/328P core for Arduino IDE 2.0
 
 This core adds full support for standalone ATmega168P/328P microcontrollers 
 into the Arduino IDE.
